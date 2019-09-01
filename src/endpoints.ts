@@ -15,6 +15,7 @@ export const updatesEndpointAddress = getEndpointAddress('getUpdates');
 export const sendMessageEndpointAddress = getEndpointAddress('sendMessage');
 
 export const getUpdates = async (lastUpdateId?: number) => {
+  console.log('Making request...');
   const response = await client.get(
     updatesEndpointAddress,
     {
@@ -32,6 +33,6 @@ export const getUpdates = async (lastUpdateId?: number) => {
 }
 
 export const sendMessage = async (chat_id: number, text: string) => {
-  console.log('- Responding', text, 'to', chat_id);
+  console.log(`- Responding "${text.replace('\n', ' ')}" to`, chat_id);
   await client.post(sendMessageEndpointAddress, { chat_id, text, parse_mode: 'Markdown' });
 }
