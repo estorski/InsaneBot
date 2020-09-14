@@ -28,7 +28,7 @@ export const getUpdates = async (lastUpdateId?: number) => {
   );
   if (response && response.data) {
     // console.log('Response', response.data);
-    return response.data.result as ReadonlyArray<Update>;
+    return response.data.result as readonly Update[];
   }
 }
 
